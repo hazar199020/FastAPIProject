@@ -1,8 +1,9 @@
-from flask import Flask, jsonify
-import json
 import requests
+from flask import Flask, jsonify, request
+import json
 import tensorflow as tf
-import render_template
+
+
 #app is the application name
 app=Flask(__name__)
 
@@ -18,16 +19,6 @@ def print_name(my_name):
     if age is not None:
         return jsonify("you name is " + my_name+" and your age is " + str(age))
     return jsonify("you name " + my_name),200
-
-@app.route('/Show_Meme/', methods=['GET'])
-def get_meme():
-    model_path = "https://drive.google.com/drive/folders/1MaFl8UBjG_gH3_bYSz2vZnd5T9PX9byD?usp=drive_link"
-    response = requests.get(url)
-    data = response.json()
-    #print(resp.text)
-    #meme_large = response["preview"][-2]
-    #subreddit = response["subreddit"]
-    return data["organization_teams_url"]
 
 
 def predictThat(img_path,path):

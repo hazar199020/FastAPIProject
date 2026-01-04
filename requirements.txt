@@ -1,1 +1,5 @@
 transformers ==4.57.3
+Flask
+gunicorn
+Pillow
+numpy
